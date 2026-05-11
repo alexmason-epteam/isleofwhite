@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resident Vehicle Permit | Isle of Wight Festival 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sky-top:    #3a7bbf;
+    --sky-mid:    #5fa0d8;
+    --sky-light:  #a8cfe8;
+    --cream:      #f5ede0;
+    --cream2:     #ede0c8;
+    --sun-yellow: #f2c12e;
+    --sun-gold:   #e09810;
+    --green-dark: #2d5a27;
+    --green-mid:  #4a8c3f;
+    --green-light:#7ab870;
+    --text-dark:  #1c2b1a;
+    --text-mid:   #3a4e38;
+    --text-muted: #6b7c69;
+    --white:      #ffffff;
+    --card-bg:    rgba(245, 237, 224, 0.92);
+    --card-border:rgba(42, 90, 39, 0.18);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  /* ── SKY HERO BAND ── */
+  .sky-hero {
+    width: 100%;
+    background: linear-gradient(175deg, var(--sky-top) 0%, var(--sky-mid) 45%, var(--sky-light) 78%, var(--cream2) 100%);
+    padding: 0 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 440px;
+  }
+
+
+
+  /* Grass strip */
+  .grass {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 56px;
+    background: linear-gradient(to bottom, var(--green-mid) 0%, var(--green-dark) 100%);
+    z-index: 2;
+  }
+
+  .grass::before {
+    content: '';
+    position: absolute;
+    top: -18px; left: 0; right: 0;
+    height: 32px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 36' preserveAspectRatio='none'%3E%3Cpath d='M0,36 C50,10 100,28 150,14 C200,0 250,24 300,12 C350,0 400,20 450,10 C500,0 550,22 600,14 C650,6 700,26 750,12 C800,-2 850,20 900,10 C950,0 1000,22 1050,14 C1100,6 1150,24 1200,12 L1200,36 Z' fill='%234a8c3f'/%3E%3C/svg%3E") no-repeat center/cover;
+  }
+
+  /* Header nav bar */
+  .top-nav {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0 20px;
+  }
+
+  /* Festival logo */
+  .festival-logo-wrap {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .festival-logo-wrap img {
+    height: 88px;
+    width: auto;
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.35));
+  }
+
+
+
+  /* Page title over sky */
+  .sky-title {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+
+  .sky-title h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(36px, 7vw, 72px);
+    font-weight: 400;
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.25);
+  }
+
+  .sky-title h1 .line2 {
+    display: block;
+    font-size: clamp(44px, 9vw, 92px);
+    color: var(--white);
+  }
+
+  .sky-title h1 .line3 {
+    display: block;
+    font-size: clamp(24px, 4vw, 48px);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.9);
+    margin-top: 6px;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.2);
+  }
+
+  /* ── CONTENT AREA (cream bg) ── */
+  .content {
+    width: 100%;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px 64px;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* ── MAIN CARD ── */
+  .main-card {
+    width: 100%;
+    max-width: 580px;
+    background: var(--white);
+    border: 1.5px solid var(--card-border);
+    border-top: 4px solid var(--green-mid);
+    border-radius: 6px;
+    padding: 44px 42px;
+    text-align: center;
+    margin-top: -2px;
+    box-shadow: 0 8px 40px rgba(42,90,39,0.10);
+    position: relative;
+    z-index: 10;
+    margin-top: 32px;
+  }
+
+  /* Sun badge */
+  .sun-badge {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fde97a, var(--sun-yellow));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    box-shadow: 0 4px 16px rgba(240,193,46,0.35);
+  }
+
+  .sun-badge svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--sun-gold);
+    fill: none;
+  }
+
+  .main-card h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--green-dark);
+    margin-bottom: 14px;
+  }
+
+  .main-card > p {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-mid);
+    line-height: 1.72;
+    margin-bottom: 32px;
+  }
+
+  /* Opens strip */
+  .opens-strip {
+    background: linear-gradient(135deg, #edf7ea, #f5f0e6);
+    border: 1.5px solid rgba(74,140,63,0.22);
+    border-radius: 6px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .opens-strip .slabel {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+  }
+
+  .opens-strip .sval {
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--green-dark);
+  }
+
+  .pulse-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green-mid);
+    flex-shrink: 0;
+    animation: blink 2.4s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  /* ── INFO TILES ── */
+  .tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .tile {
+    background: var(--white);
+    border: 1.5px solid var(--card-border);
+    border-radius: 6px;
+    padding: 18px 20px;
+  }
+
+  .tile .tlabel {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 7px;
+  }
+
+  .tile .tval {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.45;
+  }
+
+  .tile .tnote {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    width: 100%;
+    border-top: 1.5px solid var(--card-border);
+    padding: 28px 24px;
+    text-align: center;
+    margin-top: 48px;
+    background: var(--cream);
+  }
+
+  footer p {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    line-height: 1.9;
+  }
+
+  @media (max-width: 500px) {
+    .sky-hero { min-height: 360px; }
+    .festival-logo-wrap img { height: 60px; }
+    .sunburst { width: 360px; height: 360px; bottom: -90px; }
+    .sky-title { margin-bottom: 72px; }
+    .main-card { padding: 32px 22px; margin-top: 24px; }
+    .tiles { grid-template-columns: 1fr; }
+    .opens-strip { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SKY / HERO BAND -->
+<div class="sky-hero">
+  <div class="grass"></div>
+
+  <div class="festival-logo-wrap">
+    <img
+      src="https://cdn.isleofwightfestival.com/assets/images/gallery/IOW2026-1Line-White.png"
+      alt="Isle of Wight Festival 2026"
+      onerror="this.style.display='none';document.getElementById('lf').style.display='block';"
+    >
+    <div id="lf" style="display:none; font-family:'Anton',sans-serif; font-size:24px; letter-spacing:0.12em; text-transform:uppercase; color:#fff; text-shadow:0 2px 12px rgba(0,0,0,0.3);">Isle of Wight Festival 2026</div>
+  </div>
+
+  <div class="sky-title">
+    <h1>
+      Resident
+      <span class="line2">Permit</span>
+      <span class="line3">Halberry Lane Estate</span>
+    </h1>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="main-card">
+
+    <div class="sun-badge">
+      <svg viewBox="0 0 24 24" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+    </div>
+
+    <h2>Applications Opening Soon</h2>
+
+    <p>The online permit application form for your vehicle access pass will be available here shortly. Pre-applying is not compulsory but will reduce your waiting time at the collection cabin.</p>
+
+    <div class="opens-strip">
+      <div>
+        <div class="slabel">Form opens</div>
+        <div class="sval">Later this week</div>
+      </div>
+      <div class="pulse-dot"></div>
+    </div>
+
+  </div>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="tlabel">Collection cabin</div>
+      <div class="tval">Halberry Lane &amp; Harvey Road junction</div>
+    </div>
+    <div class="tile">
+      <div class="tlabel">Collection dates</div>
+      <div class="tval">Sat 13 – Tue 16 June</div>
+      <div class="tnote">08:00–20:00 each day</div>
+    </div>
+    <div class="tile">
+      <div class="tlabel">What to bring</div>
+      <div class="tval">V5, photo ID &amp; proof of address</div>
+    </div>
+    <div class="tile">
+      <div class="tlabel">Permits per property</div>
+      <div class="tval">Maximum of two permits</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Isle of Wight Festival 2026 · Resident Access · Halberry Lane Estate</p>
+  <p>Traffic management by EP Team</p>
+</footer>
+
+</body>
+</html>
